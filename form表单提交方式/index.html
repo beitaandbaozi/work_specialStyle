@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form表单提交方式</title>
+</head>
+
+<body>
+  <!-- get提交 -->
+  <h3>GET提交</h3>
+  <form action="http://www.baidu.com" method="get">
+    <p>
+      <label for="name">name</label>
+      <input type="text" name="username">
+    </p>
+    <p>
+      <label for="password">password</label>
+      <input type="password" name="password">
+    </p>
+    <input type="submit" value="提交">
+  </form>
+  <hr>
+  <!-- POST提交 -->
+  <h3>POST提交</h3>
+  <form action="http://www.baidu.com" method="post">
+    <p>
+      <label for="name">name</label>
+      <input type="text" name="username">
+    </p>
+    <p>
+      <label for="password">password</label>
+      <input type="password" name="password">
+    </p>
+    <input type="submit" value="提交">
+  </form>
+  <h4>注意点</h4>
+  <ul>
+    <li>form 的提交行为需要通过type=submit实现</li>
+    <li>form 中的method 属性不指定时， form 默认的提交方式为 get请求。</li>
+    <li>form 表单的提交后会有默认行为，会跳转刷新到action 的页面</li>
+    <li>form 表单的提交方式，==请求头默认的content-type 为 x-www-form-urlencoded==</li>
+    <li>当一个form 表单内部，所有的input 中只有一个 type='text' 的时候，enter 键会有默认的提交行为（注意前提条件）。</li>
+  </ul>
+  <hr>
+
+  <!-- ajax提交 -->
+  <h3>Ajax提交</h3>
+  <form method="POST">
+    <p>name: <input type="text" name="username" id="username"></p>
+    <p>password: <input type="password" name="password" id="password"></p>
+    <div id="submit-btn">提交</div>
+  </form>
+  <h4>注意点</h4>
+  <ul>
+    <li>通过ajax 请求模拟form 的提交需要注意 form 表单内 不允许 <button type="submit"></button>的存在，否则会和ajax 自身的请求相冲突</li>
+    <li>ajax 请求中，默认的content-type 为'formdata',可根据自己的需要修改</li>
+    <li>ajax 请求需要处理跨域问题，而form 表单的默认提交不需要，原因是，==原页面用form 提交到另一个域名之后，原脚本无法获取响应的内容，所以浏览器认为这是安全的，而ajax 需要处理响应的内容，浏览器则认为这是一种跨域的行为==</li>
+  </ul>
+  
+</body>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/index.js"></script>
+
+</html>
