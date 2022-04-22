@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+<script>
+  const div = document.getElementsByTagName('div')[0]
+  div.onmouseover = function (e) {
+    // event.pageX event.pageY 鼠标 和 document 页面左上角的距离
+    // event.clientX event.clientY鼠标 和 浏览器可视区左上角的距离 （以可视窗口为基准的鼠标位置，与滚动条滚动无关）
+    // event.screenX event.screenY 鼠标和屏幕左上角的距离（以屏幕为准）
+    // offsetX offsetY 事件对象与目标节点的内填充边（padding edge）在 X / Y 轴方向上的偏移量
+    console.log(e.clientX)
+  };
+</script>
+
+</html>
