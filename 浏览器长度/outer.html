@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  window.onload = function () {
+    // window.outerWidth 与 window.innerWidth 相比，包含浏览器边框、状态栏
+    console.log(window.outerWidth);
+    console.log(window.outerHeight);
+    // 窗口大小发生变化时，会调用此方法
+    window.onresize = function () {
+      console.log(window.outerWidth);
+      console.log(window.outerHeight);
+    }
+  }
+</script>
+
+</html>
