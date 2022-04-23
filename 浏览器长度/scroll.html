@@ -47,12 +47,21 @@
   // 下面是监听id='scroll'的div的滚动事件
   var s = document.getElementById('scroll');
 
-  s.onscroll = function () {
-    console.log('上' + s.scrollTop)
-    console.log('左' + s.scrollLeft)
-    console.log('宽' + s.scrollWidth)
+  s.onscroll = function (e) {
+    // console.log('上' + s.scrollTop)
+    // console.log('左' + s.scrollLeft)
+    // console.log('宽' + s.scrollWidth)
     console.log('高' + s.scrollHeight)
+    console.log('scrollTop:' + s.scrollTop)
+    console.log('clientHeight:' + s.clientHeight)
+    let scrollBottom = s.scrollHeight - s.scrollTop - s.clientHeight
+    console.log(scrollBottom)
+    // if (scrollBottom === 120) {
+    //   alert('到了啊')
+    //   return
+    // }
   }
+
 </script>
 
 </html>
