@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="form" method="post" enctype="multipart/form-data">
+    <input type="file" id="input">
+  </form>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript"> 
+    $("#form").change(function () {
+      const formData = new FormData()
+      formData.append('file',document.getElementById("input").files[0])
+      console.log(formData)
+      console.log(document.getElementById("input").files[0].name);
+    });
+  </script>
+</body>
+
+</html>
