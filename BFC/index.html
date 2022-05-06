@@ -13,15 +13,30 @@
       background-color: aqua;
       margin: 20px;
     }
+
     .wrapper {
       /* 生成一个新的BFC */
       overflow: hidden;
     }
+
     .box-two {
       width: 100px;
       height: 100px;
       background-color: aquamarine;
       margin: 20px;
+    }
+
+    .aside {
+      width: 100px;
+      height: 150px;
+      float: left;
+      background: #f66;
+    }
+
+    .main {
+      height: 200px;
+      overflow: hidden;
+      background: #fcc;
     }
   </style>
 </head>
@@ -31,6 +46,8 @@
   <div class="wrapper">
     <div class="box-two"></div>
   </div>
+  <div class="aside"></div>
+  <div class="main"></div>
 
 </body>
 
