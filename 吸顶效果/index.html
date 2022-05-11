@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      width: 100%;
+      height: 50px;
+      background-color: blueviolet;
+    }
+
+
+    p {
+      display: inline-block;
+      box-sizing: border-box;
+      margin: 0 40px;
+      width: 200px;
+      height: 100px;
+      border: 1px solid #eee;
+      text-align: center;
+      line-height: 100px;
+      background-color: cadetblue;
+    }
+
+    .wrapper {
+      overflow: hidden;
+      width: 100%;
+      height: 1000px;
+      background-color: brown;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+  </div>
+  <div class="box" id="searchBar">
+    <p>发现</p>
+    <p>搜索</p>
+    <p>音乐</p>
+    <p>我的</p>
+  </div>
+  <div class="wrapper">
+
+  </div>
+</body>
+<script>
+  // window.onscroll = function () {
+  //   // 可以加个防抖
+  //   let top = document.documentElement.scrollTop
+  //   // 吸顶dom
+  //   var xiDingCom = document.getElementById('box')
+  //   if (top >= 170) {
+  //     // alert('开始吸顶')
+  //     console.log('开始吸顶操作')
+  //     xiDingCom.style.position = 'fixed'
+  //     xiDingCom.style.left = 0
+  //     xiDingCom.style.top = 0
+  //     xiDingCom.style.zIndex = 999
+
+  //   } else {
+  //     xiDingCom.style.position = ''
+  //     console.log('取消吸顶操作')
+  //   }
+  // }
+  window.addEventListener("scroll", () => {
+    //  页面元素距离浏览器工作区顶端的距离  =  元素距离文档顶端偏移值  -   网页被卷起来的高度
+    //  页面元素距离浏览器工作区顶端的距离 =  DOM元素对象.offsetTop  -  document.documentElement.scrollTop 
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let offsetTop = document.querySelector('#searchBar').offsetTop;
+    console.log(offsetTop,scrollTop)
+    if (scrollTop > offsetTop) {
+      document.querySelector('#searchBar').style.position = "fixed";
+      document.querySelector('#searchBar').style.top = "0";
+    } else {
+      document.querySelector('#searchBar').style.position = "";
+      document.querySelector('#searchBar').style.top = "";
+    }
+  })
+</script>
+
+</html>
