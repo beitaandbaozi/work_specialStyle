@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+<script>
+  function throttle(fn, delay = 500) {
+    let timer = null
+    // 上一次调用时间
+    let preTime = null
+    return function () {
+      // 现在调用时间
+      let nowTime = new Date()
+      // 触发间隔是否大于delay
+      let remaining = delay - (nowTime - preTime)
+      // 保留事件参数
+      let args = arguments;
+      // 清除定时器
+      clearTimeout(timer)
+      // 如果间隔时间满足delay
+      if (remaining <= 0) {
+        // 调用fn,并且将现在时间设置为上一次执行时间
+        fn.apply(this, args)
+        preTime = Date.now()
+      } else {
+        // 否则，过了剩余时间执行最后一次fn
+        timer = setTimeout(() => {
+          fn.apply(this, args)
+        }, delay)
+      }
+    }
+  }
+  function scrollTest() {
+    console.log('触发')
+  }
+  document.addEventListener('scroll', throttle(scrollTest))
+</script>
+
+</html>
