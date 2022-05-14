@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" id="btn" value="add按钮">
+  <h2 id="number">数字</h2>
+</body>
+<script>
+  let btnAdd = document.getElementById('btn')
+  let number = document.getElementById('number')
+  let num = 0
+  // 防抖函数
+  function debounce(fn, delay = 500) {
+    let timer = null;
+    // 返回一个闭包函数，用闭包保存timer确保不会销毁，重复点击会清理上一次的定时器
+    return function () {
+      // 保存事件参数，防止fn函数需要事件参数里的数据
+      let arg = arguments
+      // 调用一次就清除上一次的定时器
+      clearTimeout(timer)
+      // 开启这一次的定时器
+      timer = setTimeout(() => {
+        // 若不改变this指向，则会指向fn定义环境
+        fn.apply(this, arg)
+      }, delay)
+    }
+  }
+  function addNumber() {
+    number.innerHTML = ++num
+  }
+  btnAdd.onclick = debounce(addNumber)
+</script>
+
+</html>
