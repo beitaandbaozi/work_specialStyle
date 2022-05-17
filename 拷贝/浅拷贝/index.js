@@ -3,18 +3,23 @@
 let obj = {
   name: "wupeixin",
 };
+let name1 = "beita";
 
 function clone(obj) {
-  if (obj == null) return;
+  if (obj === null) return;
   //TODO 判断是否是引用类型
   // 不是引用类型
-  if (typeof obj != "object") return obj;
+  if (typeof obj !== "object") return obj;
   // 引用类型
   let newObj = Array.isArray(obj) ? [] : {};
   for (let key in obj) {
-    newObj[key] = obj[key];
+    if (obj.hasOwnProperty(key)) {
+      newObj[key] = obj[key];
+    }
   }
   return newObj;
 }
 
 const newObj = clone(obj);
+const newName = clone(name1);
+console.log(newName == name1);
